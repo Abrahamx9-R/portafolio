@@ -1,0 +1,90 @@
+---
+import { t } from "../i18n/translations";
+import type { Lang } from "../i18n/translations";
+
+interface Props {
+    lang?: Lang;
+}
+
+const { lang = "es" } = Astro.props;
+---
+
+<section
+    class="min-h-screen flex items-center justify-center relative overflow-hidden"
+>
+    <!-- Decorative Elements -->
+    <div
+        class="absolute top-1/4 left-1/4 w-64 h-64 bg-neon-cyan/20 rounded-full blur-[100px] pointer-events-none animate-pulse"
+    >
+    </div>
+    <div
+        class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-lcars-purple/20 rounded-full blur-[120px] pointer-events-none"
+    >
+    </div>
+
+    <div class="w-full max-w-4xl z-10 text-center space-y-8">
+        <!-- Status Indicator -->
+        <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-neon-cyan/30 bg-space-800/50 backdrop-blur-sm"
+        >
+            <span class="relative flex h-3 w-3">
+                <span
+                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-neon-cyan opacity-75"
+                ></span>
+                <span
+                    class="relative inline-flex rounded-full h-3 w-3 bg-neon-cyan"
+                ></span>
+            </span>
+            <span class="text-neon-cyan text-xs font-mono tracking-widest"
+                >{t(lang, "hero.status")}</span
+            >
+        </div>
+
+        <!-- Main Title -->
+        <h1
+            class="text-6xl md:text-8xl font-heading font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white via-neon-cyan to-lcars-purple drop-shadow-[0_0_10px_rgba(0,243,255,0.5)]"
+        >
+            ABRAHAM<br />
+            <span class="text-white">GALINDO</span> RUIZ
+        </h1>
+
+        <!-- Subtitle -->
+        <p
+            class="text-xl md:text-2xl text-gray-400 font-body max-w-2xl mx-auto border-r-2 border-neon-cyan pr-2 animate-pulse"
+        >
+            {t(lang, "hero.subtitle")}
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col md:flex-row gap-4 justify-center pt-8">
+            <a
+                href="#projects"
+                class="group relative px-8 py-3 bg-neon-cyan/10 border border-neon-cyan text-neon-cyan font-heading uppercase tracking-widest hover:bg-neon-cyan hover:text-space-900 transition-all duration-300 overflow-hidden shadow-neon-blue"
+            >
+                <span class="relative z-10">{t(lang, "hero.cta.projects")}</span
+                >
+                <div
+                    class="absolute inset-0 bg-neon-cyan transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"
+                >
+                </div>
+            </a>
+
+            <a
+                href="#contact"
+                class="px-8 py-3 border border-white/20 text-white font-heading uppercase tracking-widest hover:border-white hover:bg-white/5 transition-all duration-300"
+            >
+                {t(lang, "hero.cta.contact")}
+            </a>
+        </div>
+    </div>
+
+    <!-- LCARS-style Decorative bottom bar -->
+    <div
+        class="absolute bottom-0 right-0 w-1/2 h-2 bg-gradient-to-l from-lcars-tan to-transparent"
+    >
+    </div>
+    <div
+        class="absolute bottom-0 right-0 w-2 h-1/4 bg-gradient-to-t from-lcars-tan to-transparent"
+    >
+    </div>
+</section>

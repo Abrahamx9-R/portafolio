@@ -1,0 +1,136 @@
+---
+import { getCollection } from "astro:content";
+import { t } from "../i18n/translations";
+import type { Lang } from "../i18n/translations";
+import { getLocalizedPath } from "../i18n/utils";
+
+interface Props {
+    lang?: Lang;
+}
+
+const { lang = "es" } = Astro.props;
+
+// Filter posts by current language
+const allPosts = (await getCollection("blog"))
+    .filter((post) => post.data.lang === lang)
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const categories = [
+    t(lang, "blog.filter.all"),
+    ...new Set(allPosts.map((post) => post.data.category).filter(Boolean)),
+];
+---
+
+<aside class="w-full md:w-64 flex-shrink-0">
+    <div class="sticky top-32 space-y-8">
+        <!-- Search Panel -->
+        <div
+            class="bg-space-800/50 border border-white/10 rounded-xl overflow-hidden backdrop-blur-md"
+        >
+            <div
+                class="bg-space-900/80 p-4 border-b border-lcars-purple/50 flex justify-between items-center"
+            >
+                <span
+                    class="font-heading font-bold text-white tracking-widest text-sm"
+                    >{t(lang, "blog.search.title")}</span
+                >
+            </div>
+            <div class="p-4">
+                <div class="relative group">
+                    <input
+                        type="text"
+                        id="blog-search"
+                        placeholder={t(lang, "blog.search.placeholder")}
+                        class="w-full bg-space-900 border border-white/20 text-white p-2 text-sm focus:outline-none focus:border-neon-cyan transition-colors placeholder-gray-600 font-mono rounded"
+                    />
+                    <div class="absolute right-3 top-2.5 text-gray-500">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            ><circle cx="11" cy="11" r="8"></circle><path
+                                d="m21 21-4.3-4.3"></path></svg
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Categories Panel -->
+        <div
+            class="bg-space-800/50 border border-white/10 rounded-xl overflow-hidden backdrop-blur-md"
+        >
+            <div
+                class="bg-space-900/80 p-4 border-b border-lcars-purple/50 flex justify-between items-center"
+            >
+                <span
+                    class="font-heading font-bold text-white tracking-widest text-sm"
+                    >{t(lang, "blog.sidebar.type")}</span
+                >
+                <span class="w-2 h-2 rounded-full bg-lcars-purple animate-pulse"
+                ></span>
+            </div>
+
+            <nav class="p-2">
+                <ul class="space-y-1">
+                    {
+                        categories.map((category) => (
+                            <li>
+                                <button
+                                    data-category={category}
+                                    class="category-btn w-full text-left block px-4 py-2 rounded text-sm font-mono transition-all duration-300 border-l-2 border-transparent text-gray-400 hover:bg-white/5 hover:text-white hover:border-white/20"
+                                >
+                                    {category.toUpperCase()}
+                                </button>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Featured/Recent Mini List -->
+        <div class="hidden md:block p-4 border-l-2 border-lcars-tan">
+            <h3 class="font-mono text-xs text-lcars-tan mb-4 tracking-widest">
+                {t(lang, "blog.sidebar.latest")}
+            </h3>
+            <ul class="space-y-4">
+                {
+                    allPosts.slice(0, 3).map((post) => (
+                        <li>
+                            <a
+                                href={getLocalizedPath(
+                                    `/blog/${post.slug.split("/").pop()}`,
+                                    lang,
+                                )}
+                                class="block group"
+                            >
+                                <span class="block text-gray-300 text-xs font-bold group-hover:text-neon-cyan transition-colors line-clamp-1">
+                                    {post.data.title}
+                                </span>
+                                <span class="block text-[10px] text-gray-500 font-mono">
+                                    {post.data.pubDate.toLocaleDateString()}
+                                </span>
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+    </div>
+</aside>
+
+<style>
+    /* Active state class for JS */
+    .category-btn.active {
+        background-color: rgba(0, 243, 255, 0.1);
+        color: #00f3ff;
+        border-color: #00f3ff;
+    }
+</style>

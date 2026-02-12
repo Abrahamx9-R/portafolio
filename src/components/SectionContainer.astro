@@ -1,0 +1,9 @@
+---
+const { id, class: className } = Astro.props;
+---
+
+<section id={id} class={`py-20 md:py-32 relative ${className}`}>
+    <div class="container mx-auto px-4">
+        <slot />
+    </div>
+</section>

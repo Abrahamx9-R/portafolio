@@ -1,0 +1,58 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Background3D from "../components/Background3D.astro";
+import { t } from "../i18n/translations";
+import type { Lang } from "../i18n/translations";
+
+interface Props {
+	lang?: Lang;
+}
+
+const { lang = "es" } = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang}>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={t(lang, "seo.description")} />
+		<title>{t(lang, "seo.title")}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body
+		class="bg-space-900 min-h-screen relative text-white selection:bg-neon-cyan selection:text-space-900"
+	>
+		<!-- Background Grid -->
+		<div class="fixed inset-0 z-0 pointer-events-none tron-grid opacity-20">
+		</div>
+		<div
+			class="fixed inset-0 z-0 bg-gradient-to-t from-space-900 via-transparent to-transparent pointer-events-none"
+		>
+		</div>
+
+		<Background3D />
+		<Header lang={lang} />
+
+		<main class="relative z-10 pt-24 px-4 container mx-auto">
+			<slot />
+		</main>
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+</style>

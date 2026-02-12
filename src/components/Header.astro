@@ -1,0 +1,103 @@
+---
+import { t } from "../i18n/translations";
+import type { Lang } from "../i18n/translations";
+import { getLocalizedPath } from "../i18n/utils";
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = "es" } = Astro.props;
+const otherLang: Lang = lang === "es" ? "en" : "es";
+
+const links = [
+  { text: t(lang, "nav.home"), href: getLocalizedPath("/", lang) },
+  { text: t(lang, "nav.projects"), href: getLocalizedPath("/#projects", lang) },
+  { text: t(lang, "nav.about"), href: getLocalizedPath("/#about", lang) },
+  { text: t(lang, "nav.blog"), href: getLocalizedPath("/blog", lang) },
+  { text: t(lang, "nav.contact"), href: getLocalizedPath("/#contact", lang) },
+];
+---
+
+<header class="fixed top-0 left-0 w-full z-50 p-4">
+  <nav
+    class="container mx-auto flex items-center justify-between p-4 bg-space-800/80 backdrop-blur-md rounded-full border border-white/10 shadow-[0_0_15px_rgba(0,243,255,0.2)]"
+  >
+    <!-- Logo / Identity -->
+    <a
+      href={getLocalizedPath("/", lang)}
+      class="text-2xl font-heading font-bold tracking-widest text-white hover:text-neon-cyan transition-colors duration-300 drop-shadow-[0_0_5px_rgba(0,243,255,0.8)]"
+    >
+      &lt; Abraham X9 /&gt;
+    </a>
+
+    <!-- Navigation Links -->
+    <ul class="hidden md:flex gap-6 items-center">
+      {
+        links.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="font-body text-lg uppercase tracking-wide text-gray-300 hover:text-neon-cyan relative group transition-colors"
+            >
+              {link.text}
+              <span class="absolute -bottom-1 left-0 w-0 h-[2px] bg-neon-cyan transition-all duration-300 group-hover:w-full box-shadow-neon-blue" />
+            </a>
+          </li>
+        ))
+      }
+      <!-- Language Switcher -->
+      <li>
+        <a
+          href={getLocalizedPath("/", otherLang)}
+          class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-neon-cyan/30 bg-space-800/50 text-neon-cyan font-mono text-xs uppercase tracking-widest hover:bg-neon-cyan hover:text-space-900 transition-all duration-300"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"
+            ></path><path
+              d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+            ></path></svg
+          >
+          {otherLang.toUpperCase()}
+        </a>
+      </li>
+    </ul>
+
+    <!-- Mobile Menu Button -->
+    <div class="flex items-center gap-3 md:hidden">
+      <a
+        href={getLocalizedPath("/", otherLang)}
+        class="px-2 py-1 rounded border border-neon-cyan/30 text-neon-cyan font-mono text-xs uppercase tracking-widest"
+      >
+        {otherLang.toUpperCase()}
+      </a>
+      <button class="text-neon-cyan">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><line x1="3" y1="12" x2="21" y2="12"></line><line
+            x1="3"
+            y1="6"
+            x2="21"
+            y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg
+        >
+      </button>
+    </div>
+  </nav>
+</header>

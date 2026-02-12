@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+    /* Colors */
+    --color-space-900: #050510;
+    --color-space-800: #0a0a1a;
+
+    --color-neon-cyan: #00f3ff;
+    --color-neon-blue: #0066ff;
+    --color-rectifier-orange: #ff9e00;
+
+    --color-lcars-purple: #9944ff;
+    --color-lcars-tan: #ffcc99;
+    --color-lcars-red: #cc4444;
+    --color-lcars-blue: #4455bb;
+
+    /* Fonts */
+    --font-heading: 'Orbitron', sans-serif;
+    --font-body: 'Rajdhani', sans-serif;
+    --font-mono: 'Menlo', 'Monaco', 'Courier New', monospace;
+
+    /* Shadows */
+    --shadow-neon-blue: 0 0 5px var(--color-neon-cyan), 0 0 20px var(--color-neon-cyan);
+    --shadow-neon-orange: 0 0 5px var(--color-rectifier-orange), 0 0 20px var(--color-rectifier-orange);
+
+    /* Backgrounds */
+    --image-grid-pattern: linear-gradient(to right, #ffffff05 1px, transparent 1px), linear-gradient(to bottom, #ffffff05 1px, transparent 1px);
+}
+
+/* Utilities */
+@layer utilities {
+    .poster-glow {
+        text-shadow: 0 0 10px var(--color-neon-cyan);
+    }
+
+    .lcars-panel {
+        @apply rounded-tr-2xl rounded-bl-2xl border-l-4 border-t-2 border-lcars-purple bg-space-800/50 backdrop-blur-md;
+    }
+
+    .tron-grid {
+        background-size: 40px 40px;
+        background-image: linear-gradient(to right, rgba(0, 243, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(0, 243, 255, 0.05) 1px, transparent 1px);
+        mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+    }
+}
+
+/* Base Styles */
+@layer base {
+    html {
+        @apply bg-space-900 text-white font-body overflow-x-hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-heading tracking-wider uppercase;
+    }
+}

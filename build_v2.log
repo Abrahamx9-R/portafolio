@@ -1,0 +1,53 @@
+[2m11:28:24[22m [34m[content][39m Syncing content
+[2m11:28:24[22m [34m[content][39m Synced content
+[2m11:28:24[22m [34m[types][39m Generated [2m451ms[22m
+[2m11:28:24[22m [34m[build][39m output: [34m"static"[39m
+[2m11:28:24[22m [34m[build][39m mode: [34m"static"[39m
+[2m11:28:24[22m [34m[build][39m directory: [34mC:\Users\x9\OneDrive\Documents\personal\Portafolio\nuevo\astro\dist\[39m
+[2m11:28:24[22m [34m[build][39m Collecting build info...
+[2m11:28:24[22m [34m[build][39m [32mÔ£ô Completed in 473ms.[39m
+[2m11:28:24[22m [34m[build][39m Building static entrypoints...
+[2m11:28:26[22m [34m[vite][39m [32mÔ£ô built in 2.05s[39m
+[2m11:28:26[22m [34m[build][39m [32mÔ£ô Completed in 2.10s.[39m
+
+[42m[30m building client (vite) [39m[49m
+[2m11:28:26[22m [34m[vite][39m transforming...
+[2m11:28:28[22m [34m[vite][39m [32mÔ£ô[39m 3 modules transformed.
+[2m11:28:28[22m [34m[vite][39m rendering chunks...
+[2m11:28:28[22m [34m[vite][39m computing gzip size...
+[2m11:28:28[22m [34m[vite][39m [2mdist/[22m[36m_astro/Background3D.astro_astro_type_script_index_0_lang.B_mqHDs-.js  [39m[1m[2m492.39 kB[22m[1m[22m[2m Ôöé gzip: 124.95 kB[22m
+[2m11:28:28[22m [34m[vite][39m [32mÔ£ô built in 1.96s[39m
+
+[42m[30m generating static routes [39m[49m
+[2m11:28:28[22m [32mÔûÂ[39m src/pages/blog/index.astro
+[2m11:28:28[22m   [34mÔööÔöÇ[39m [2m/blog/index.html[22m [2m(+6ms)[22m [33m(file not created, response body was empty)[39m
+[2m11:28:28[22m [32mÔûÂ[39m src/pages/en/blog/index.astro
+[2m11:28:28[22m   [34mÔööÔöÇ[39m [2m/en/blog/index.html[22m [2m(+20ms)[22m 
+[2m11:28:28[22m [32mÔûÂ[39m src/pages/en/blog/[...slug].astro
+[2m11:28:28[22m   [34mÔö£ÔöÇ[39m [2m/en/blog/project-cyber-fleet/index.html[22m [2m(+4ms)[22m 
+[2m11:28:28[22m   [34mÔö£ÔöÇ[39m [2m/en/blog/astro-5/index.html[22m [2m(+3ms)[22m 
+[2m11:28:28[22m   [34mÔö£ÔöÇ[39m [2m/en/blog/ml-edge/index.html[22m [2m(+3ms)[22m 
+[2m11:28:28[22m   [34mÔö£ÔöÇ[39m [2m/en/blog/future-interfaces/index.html[22m [2m(+2ms)[22m 
+[2m11:28:28[22m   [34mÔö£ÔöÇ[39m [2m/en/blog/project-neon-interface/index.html[22m [2m(+4ms)[22m 
+[2m11:28:28[22m   [34mÔö£ÔöÇ[39m [2m/en/blog/project-exo-planet/index.html[22m [2m(+2ms)[22m 
+[2m11:28:28[22m   [34mÔööÔöÇ[39m [2m/en/blog/iot-state/index.html[22m [2m(+5ms)[22m 
+[2m11:28:28[22m [32mÔûÂ[39m src/pages/en/index.astro
+[2m11:28:28[22m   [34mÔööÔöÇ[39m [2m/en/index.html[22m [2m(+10ms)[22m 
+[2m11:28:28[22m [32mÔûÂ[39m src/pages/es/blog/index.astro
+[2m11:28:28[22m   [34mÔööÔöÇ[39m [2m/es/blog/index.html[22m [2m(+5ms)[22m 
+[2m11:28:28[22m [32mÔûÂ[39m src/pages/es/blog/[...slug].astro
+[2m11:28:28[22m   [34mÔö£ÔöÇ[39m [2m/es/blog/iot-state/index.html[22m [2m(+2ms)[22m 
+[2m11:28:28[22m   [34mÔö£ÔöÇ[39m [2m/es/blog/future-interfaces/index.html[22m [2m(+2ms)[22m 
+[2m11:28:28[22m   [34mÔö£ÔöÇ[39m [2m/es/blog/astro-5/index.html[22m [2m(+3ms)[22m 
+[2m11:28:28[22m   [34mÔö£ÔöÇ[39m [2m/es/blog/project-cyber-fleet/index.html[22m [2m(+2ms)[22m 
+[2m11:28:28[22m   [34mÔö£ÔöÇ[39m [2m/es/blog/project-neon-interface/index.html[22m [2m(+3ms)[22m 
+[2m11:28:28[22m   [34mÔö£ÔöÇ[39m [2m/es/blog/project-exo-planet/index.html[22m [2m(+3ms)[22m 
+[2m11:28:28[22m   [34mÔööÔöÇ[39m [2m/es/blog/ml-edge/index.html[22m [2m(+2ms)[22m 
+[2m11:28:28[22m [32mÔûÂ[39m src/pages/es/index.astro
+[2m11:28:28[22m   [34mÔööÔöÇ[39m [2m/es/index.html[22m [2m(+6ms)[22m 
+[2m11:28:28[22m [32mÔûÂ[39m src/pages/index.astro
+[2m11:28:28[22m   [34mÔööÔöÇ[39m [2m/index.html[22m [2m(+3ms)[22m 
+[2m11:28:28[22m [32mÔ£ô Completed in 161ms.
+[39m
+[2m11:28:28[22m [34m[build][39m 20 page(s) built in [1m4.72s[22m
+[2m11:28:28[22m [34m[build][39m [1mComplete![22m

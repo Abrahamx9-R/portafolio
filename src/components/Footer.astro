@@ -1,0 +1,42 @@
+---
+import { t } from "../i18n/translations";
+import type { Lang } from "../i18n/translations";
+
+interface Props {
+    lang?: Lang;
+}
+
+const { lang = "es" } = Astro.props;
+---
+
+<footer class="bg-space-900 border-t-4 border-lcars-purple py-8 relative">
+    <div
+        class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center opacity-70"
+    >
+        <div class="font-mono text-xs text-lcars-tan mb-4 md:mb-0">
+            {t(lang, "footer.copyright")}
+        </div>
+
+        <div class="flex gap-6">
+            <a
+                href="mailto:abrahamgalindorx9@gmail.com"
+                class="text-gray-500 hover:text-white transition-colors text-xs uppercase tracking-wider"
+                >Email</a
+            >
+            <a
+                href="https://github.com/Abrahamx9-R"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-gray-500 hover:text-white transition-colors text-xs uppercase tracking-wider"
+                >GitHub</a
+            >
+            <a
+                href="https://www.andraks.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-gray-500 hover:text-white transition-colors text-xs uppercase tracking-wider"
+                >andraks.com</a
+            >
+        </div>
+    </div>
+</footer>

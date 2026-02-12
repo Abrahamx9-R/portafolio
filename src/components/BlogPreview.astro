@@ -1,0 +1,70 @@
+---
+import { getCollection } from "astro:content";
+import SectionContainer from "./SectionContainer.astro";
+import { t } from "../i18n/translations";
+import type { Lang } from "../i18n/translations";
+import { getLocalizedPath } from "../i18n/utils";
+
+interface Props {
+    lang?: Lang;
+}
+
+const { lang = "es" } = Astro.props;
+
+const posts = (await getCollection("blog"))
+    .filter((post) => post.data.lang === lang)
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+    .slice(0, 3);
+---
+
+<SectionContainer id="blog" class="bg-space-900 border-t border-white/5">
+    <div class="flex items-center justify-between mb-12">
+        <h2 class="text-4xl font-heading font-bold text-white">
+            <span class="text-rectifier-orange">///</span>
+            {t(lang, "blog.title")}
+        </h2>
+        <a
+            href={getLocalizedPath("/blog", lang)}
+            class="text-neon-cyan font-mono text-sm hover:underline tracking-widest uppercase"
+        >
+            {t(lang, "blog.viewAll")}
+        </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+            posts.map((post) => (
+                <a
+                    href={getLocalizedPath(
+                        `/blog/${post.slug.split("/").pop()}`,
+                        lang,
+                    )}
+                    class="group block border-l-2 border-lcars-tan bg-space-800/30 p-6 hover:bg-space-800/60 transition-colors"
+                >
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="font-mono text-gray-500 text-xs">
+                            {post.data.pubDate.toLocaleDateString()}
+                        </span>
+                        <span class="w-2 h-2 rounded-full bg-rectifier-orange opacity-50 group-hover:animate-pulse" />
+                    </div>
+
+                    <h3 class="text-xl font-heading font-bold text-gray-100 mb-2 group-hover:text-neon-cyan transition-colors">
+                        {post.data.title}
+                    </h3>
+
+                    <p class="text-gray-400 font-body text-sm line-clamp-2 mb-4">
+                        {post.data.description}
+                    </p>
+
+                    <div class="flex gap-2">
+                        {post.data.tags?.slice(0, 2).map((tag) => (
+                            <span class="text-[10px] uppercase tracking-wider px-2 py-0.5 bg-white/5 text-gray-400 rounded">
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
+                </a>
+            ))
+        }
+    </div>
+</SectionContainer>
