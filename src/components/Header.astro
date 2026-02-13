@@ -73,14 +73,17 @@ const links = [
     </ul>
 
     <!-- Mobile Menu Button -->
-    <div class="flex items-center gap-3 md:hidden">
+    <div class="flex items-center gap-4 md:hidden">
       <a
         href={getLocalizedPath("/", otherLang)}
         class="px-2 py-1 rounded border border-neon-cyan/30 text-neon-cyan font-mono text-xs uppercase tracking-widest"
       >
         {otherLang.toUpperCase()}
       </a>
-      <button class="text-neon-cyan">
+      <button
+        id="menu-toggle"
+        class="text-neon-cyan focus:outline-none z-50 relative"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -91,6 +94,8 @@ const links = [
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
+          class="transition-transform duration-300"
+          id="menu-icon"
           ><line x1="3" y1="12" x2="21" y2="12"></line><line
             x1="3"
             y1="6"
@@ -100,4 +105,78 @@ const links = [
       </button>
     </div>
   </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div
+    id="mobile-menu"
+    class="fixed inset-0 bg-space-900/95 backdrop-blur-xl z-40 transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center"
+  >
+    <ul class="flex flex-col gap-8 text-center">
+      {
+        links.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="mobile-link text-3xl font-heading font-bold text-white hover:text-neon-cyan transition-colors"
+            >
+              {link.text}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <!-- Decorative Circle -->
+    <div
+      class="absolute -bottom-20 -right-20 w-64 h-64 bg-neon-cyan/10 rounded-full blur-3xl pointer-events-none"
+    >
+    </div>
+    <div
+      class="absolute -top-20 -left-20 w-64 h-64 bg-lcars-primary/10 rounded-full blur-3xl pointer-events-none"
+    >
+    </div>
+  </div>
 </header>
+
+<script>
+  const menuToggle = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const menuIcon = document.getElementById("menu-icon");
+  const mobileLinks = document.querySelectorAll(".mobile-link");
+
+  let isMenuOpen = false;
+
+  if (menuToggle && mobileMenu && menuIcon) {
+    menuToggle.addEventListener("click", () => {
+      isMenuOpen = !isMenuOpen;
+
+      // Toggle Menu Visibility
+      if (isMenuOpen) {
+        mobileMenu.classList.remove("translate-x-full");
+        document.body.style.overflow = "hidden"; // Prevent scrolling
+
+        // Change Icon to X
+        menuIcon.innerHTML =
+          '<line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>';
+      } else {
+        mobileMenu.classList.add("translate-x-full");
+        document.body.style.overflow = ""; // Enable scrolling
+
+        // Change Icon back to Hamburger
+        menuIcon.innerHTML =
+          '<line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>';
+      }
+    });
+
+    // Close menu when clicking a link
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        isMenuOpen = false;
+        mobileMenu.classList.add("translate-x-full");
+        document.body.style.overflow = "";
+        menuIcon.innerHTML =
+          '<line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>';
+      });
+    });
+  }
+</script>

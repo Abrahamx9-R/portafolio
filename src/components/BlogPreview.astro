@@ -18,8 +18,12 @@ const posts = (await getCollection("blog"))
 ---
 
 <SectionContainer id="blog" class="bg-space-900 border-t border-white/5">
-    <div class="flex items-center justify-between mb-12">
-        <h2 class="text-4xl font-heading font-bold text-white">
+    <div
+        class="flex flex-col md:flex-row items-center justify-between mb-12 gap-4 md:gap-0"
+    >
+        <h2
+            class="text-3xl md:text-4xl font-heading font-bold text-white text-center md:text-left"
+        >
             <span class="text-lcars-tertiary">///</span>
             {t(lang, "blog.title")}
         </h2>
@@ -39,7 +43,7 @@ const posts = (await getCollection("blog"))
                         `/blog/${post.slug.split("/").pop()}`,
                         lang,
                     )}
-                    class="group block border-l-2 border-lcars-light bg-space-800/30 p-6 hover:bg-space-800/60 transition-colors"
+                    class="group flex flex-col h-full border-l-2 border-lcars-light bg-space-800/30 p-6 hover:bg-space-800/60 transition-colors"
                 >
                     <div class="flex justify-between items-start mb-4">
                         <span class="font-mono text-gray-500 text-xs">
@@ -52,11 +56,11 @@ const posts = (await getCollection("blog"))
                         {post.data.title}
                     </h3>
 
-                    <p class="text-gray-400 font-body text-sm line-clamp-2 mb-4">
+                    <p class="text-gray-400 font-body text-sm line-clamp-3 mb-4 flex-grow">
                         {post.data.description}
                     </p>
 
-                    <div class="flex gap-2">
+                    <div class="flex flex-wrap gap-2 mt-auto">
                         {post.data.tags?.slice(0, 2).map((tag) => (
                             <span class="text-[10px] uppercase tracking-wider px-2 py-0.5 bg-white/5 text-gray-400 rounded">
                                 {tag}

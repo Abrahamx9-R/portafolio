@@ -1,45 +1,66 @@
 ---
 interface Props {
-  title: string;
-  description: string;
-  tags: string[];
-  image?: string;
-  link: string;
+    title: string;
+    description: string;
+    tags: string[];
+    image?: string;
+    link: string;
 }
 
 const { title, description, tags, link } = Astro.props;
 ---
 
-<a href={link} class="group block relative bg-space-800 border border-white/10 overflow-hidden hover:border-neon-cyan transition-colors duration-300 rounded-xl">
+<a
+    href={link}
+    class="group flex flex-col h-full relative bg-space-800 border border-white/10 overflow-hidden hover:border-neon-cyan transition-colors duration-300 rounded-xl"
+>
     <!-- Image Placeholder (if no image) -->
-    <div class="h-48 bg-space-900 relative overflow-hidden group-hover:opacity-80 transition-opacity">
-        <div class="absolute inset-0 flex items-center justify-center text-gray-500 font-mono text-sm">
+    <div
+        class="h-48 bg-space-900 relative overflow-hidden group-hover:opacity-80 transition-opacity shrink-0"
+    >
+        <div
+            class="absolute inset-0 flex items-center justify-center text-gray-500 font-mono text-sm"
+        >
             [PROJECT_VISUALIZATION]
         </div>
         <!-- Grid overlay -->
-        <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
+        <div
+            class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"
+        >
+        </div>
     </div>
 
-    <div class="p-6 relative">
+    <div class="p-6 relative flex flex-col flex-grow">
         <!-- Decoration -->
         <div class="absolute top-0 right-0 p-2 opacity-50">
             <div class="w-2 h-2 bg-lcars-glow rounded-full"></div>
         </div>
 
-        <h3 class="text-xl font-heading font-bold text-white mb-2 group-hover:text-neon-cyan transition-colors">{title}</h3>
-        <p class="text-gray-400 font-body mb-4 text-sm leading-relaxed line-clamp-2">
+        <h3
+            class="text-xl font-heading font-bold text-white mb-2 group-hover:text-neon-cyan transition-colors"
+        >
+            {title}
+        </h3>
+        <p
+            class="text-gray-400 font-body mb-4 text-sm leading-relaxed line-clamp-3 flex-grow"
+        >
             {description}
         </p>
-        
+
         <div class="flex flex-wrap gap-2 mt-auto">
-            {tags.map((tag) => (
-                <span class="text-xs font-mono text-neon-cyan/80 bg-neon-cyan/10 px-2 py-1 rounded border border-neon-cyan/20">
-                    {tag}
-                </span>
-            ))}
+            {
+                tags.map((tag) => (
+                    <span class="text-xs font-mono text-neon-cyan/80 bg-neon-cyan/10 px-2 py-1 rounded border border-neon-cyan/20 whitespace-nowrap">
+                        {tag}
+                    </span>
+                ))
+            }
         </div>
-        
+
         <!-- Hover Glow -->
-        <div class="absolute -inset-1 bg-gradient-to-r from-neon-cyan to-lcars-primary opacity-0 group-hover:opacity-20 blur-md transition-opacity duration-300 pointer-events-none"></div>
+        <div
+            class="absolute -inset-1 bg-gradient-to-r from-neon-cyan to-lcars-primary opacity-0 group-hover:opacity-20 blur-md transition-opacity duration-300 pointer-events-none"
+        >
+        </div>
     </div>
 </a>

@@ -11,13 +11,15 @@ const { lang = "es" } = Astro.props;
 
 <footer class="bg-space-900 border-t-4 border-lcars-primary py-8 relative">
     <div
-        class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center opacity-70"
+        class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center opacity-70 gap-4 md:gap-0"
     >
-        <div class="font-mono text-xs text-lcars-light mb-4 md:mb-0">
+        <div
+            class="font-mono text-xs text-lcars-light text-center md:text-left"
+        >
             {t(lang, "footer.copyright")}
         </div>
 
-        <div class="flex gap-6">
+        <div class="flex gap-6 justify-center">
             <a
                 href="https://wa.me/1234567890"
                 target="_blank"

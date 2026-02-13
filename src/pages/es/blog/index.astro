@@ -18,7 +18,7 @@ const allPosts = (await getCollection('blog'))
         <div class="container mx-auto px-4">
             
             <SectionContainer class="!py-0 mb-12">
-                 <h1 class="text-5xl md:text-7xl font-heading font-bold text-white mb-2">
+                 <h1 class="text-3xl md:text-7xl font-heading font-bold text-white mb-2">
                     <span class="text-neon-cyan">///</span> {t(lang, 'blog.title')}
                 </h1>
                 <p id="filter-status" class="text-xl text-gray-400 max-w-2xl">
@@ -66,7 +66,7 @@ const allPosts = (await getCollection('blog'))
                                         {post.data.description}
                                     </p>
                                     
-                                    <div class="mt-auto flex gap-2">
+                                    <div class="mt-auto flex flex-wrap gap-2">
                                         {post.data.tags?.map(tag => (
                                             <span class="text-xs font-mono px-2 py-1 bg-white/5 text-gray-300 border border-white/10">
                                                 #{tag}

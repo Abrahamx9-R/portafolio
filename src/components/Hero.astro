@@ -22,7 +22,9 @@ const { lang = "es" } = Astro.props;
     >
     </div>
 
-    <div class="w-full max-w-4xl z-10 text-center space-y-8">
+    <div
+        class="w-full max-w-4xl z-10 text-center space-y-8 flex flex-col items-center"
+    >
         <!-- Status Indicator -->
         <div
             class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-neon-cyan/30 bg-space-800/50 backdrop-blur-sm"
@@ -42,7 +44,7 @@ const { lang = "es" } = Astro.props;
 
         <!-- Main Title -->
         <h1
-            class="text-6xl md:text-8xl font-heading font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white via-neon-cyan to-lcars-primary drop-shadow-[0_0_10px_rgba(0,229,255,0.5)]"
+            class="text-4xl md:text-6xl lg:text-8xl font-heading font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white via-neon-cyan to-lcars-primary drop-shadow-[0_0_10px_rgba(0,229,255,0.5)]"
         >
             ABRAHAM<br />
             <span class="text-white">GALINDO</span> RUIZ
