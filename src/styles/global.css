@@ -81,3 +81,26 @@
         @apply font-heading tracking-wider uppercase;
     }
 }
+
+/* Adjusted Typography */
+body {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-neon-white);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--color-lcars-primary);
+}
+
+/* Adjusted Background Colors */
+body {
+    background-color: var(--color-space-800);
+}
+
+/* Reduce Brightness of White Text */
+.text-white {
+    color: #d0e7f7;
+}
