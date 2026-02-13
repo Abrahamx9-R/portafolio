@@ -55,7 +55,7 @@ const allPosts = (await getCollection('blog'))
                                     <div class="flex items-center gap-4 mb-2">
                                         <span class="font-mono text-neon-cyan text-sm">{post.data.pubDate.toLocaleDateString()}</span>
                                         <div class="h-[1px] flex-1 bg-white/10"></div>
-                                        <span class="text-xs font-mono px-2 py-0.5 border border-lcars-purple text-lcars-purple rounded uppercase">{post.data.category}</span>
+                                        <span class="text-xs font-mono px-2 py-0.5 border border-lcars-tertiary text-lcars-tertiary rounded uppercase">{post.data.category}</span>
                                     </div>
                                     
                                     <h2 class="text-2xl md:text-3xl font-heading font-bold text-white mb-3 group-hover:text-neon-cyan transition-colors">

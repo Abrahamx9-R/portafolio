@@ -20,7 +20,7 @@ const posts = (await getCollection("blog"))
 <SectionContainer id="blog" class="bg-space-900 border-t border-white/5">
     <div class="flex items-center justify-between mb-12">
         <h2 class="text-4xl font-heading font-bold text-white">
-            <span class="text-rectifier-orange">///</span>
+            <span class="text-lcars-tertiary">///</span>
             {t(lang, "blog.title")}
         </h2>
         <a
@@ -39,13 +39,13 @@ const posts = (await getCollection("blog"))
                         `/blog/${post.slug.split("/").pop()}`,
                         lang,
                     )}
-                    class="group block border-l-2 border-lcars-tan bg-space-800/30 p-6 hover:bg-space-800/60 transition-colors"
+                    class="group block border-l-2 border-lcars-light bg-space-800/30 p-6 hover:bg-space-800/60 transition-colors"
                 >
                     <div class="flex justify-between items-start mb-4">
                         <span class="font-mono text-gray-500 text-xs">
                             {post.data.pubDate.toLocaleDateString()}
                         </span>
-                        <span class="w-2 h-2 rounded-full bg-rectifier-orange opacity-50 group-hover:animate-pulse" />
+                        <span class="w-2 h-2 rounded-full bg-lcars-glow opacity-50 group-hover:animate-pulse" />
                     </div>
 
                     <h3 class="text-xl font-heading font-bold text-gray-100 mb-2 group-hover:text-neon-cyan transition-colors">

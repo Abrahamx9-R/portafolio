@@ -4,25 +4,33 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				// Base
+				// Base - Deep Space
 				space: {
-					900: '#050510', // Deep Space Black
-					800: '#0a0a1a',
+					900: '#020810', // Void Black
+					800: '#061020', // Deep Space
+					700: '#0c1a30', // Space Blue
 				},
-				// Tron Accents
+				// Tron Blue Spectrum
 				neon: {
-					cyan: '#00f3ff',
-					blue: '#0066ff',
+					cyan: '#00e5ff',    // Bright cyan glow
+					blue: '#00b8ff',    // Electric blue
+					white: '#e0f7ff',   // Light beam
+					sky: '#4dc9ff',     // Sky blue accent
 				},
-				rectifier: {
-					orange: '#ff9e00',
+				// Blue Accents
+				accent: {
+					deep: '#0066cc',    // Deep blue
+					navy: '#003d7a',    // Navy
+					ice: '#b3e5fc',     // Ice blue
 				},
-				// Star Trek / LCARS Accents
+				// LCARS Blue Theme
 				lcars: {
-					purple: '#9944ff',
-					tan: '#ffcc99',
-					red: '#cc4444',
-					blue: '#4455bb',
+					primary: '#00aaff',   // Primary display
+					secondary: '#0088cc', // Secondary panel
+					tertiary: '#66ccff',  // Tertiary accent
+					dark: '#004488',      // Dark panel
+					light: '#99ddff',     // Light indicator
+					glow: '#00ffff',      // Glow effect
 				}
 			},
 			fontFamily: {
@@ -31,8 +39,9 @@ export default {
 				mono: ['Menlo', 'Monaco', 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', 'monospace'],
 			},
 			boxShadow: {
-				'neon-blue': '0 0 5px theme("colors.neon.cyan"), 0 0 20px theme("colors.neon.cyan")',
-				'neon-orange': '0 0 5px theme("colors.rectifier.orange"), 0 0 20px theme("colors.rectifier.orange")',
+				'neon-blue': '0 0 8px theme("colors.neon.cyan"), 0 0 25px theme("colors.neon.cyan"), 0 0 40px theme("colors.neon.blue")',
+				'neon-soft': '0 0 8px theme("colors.neon.sky"), 0 0 20px theme("colors.lcars.primary")',
+				'lcars-glow': '0 0 10px theme("colors.lcars.glow"), 0 0 30px theme("colors.lcars.primary")',
 			},
 			backgroundImage: {
 				'grid-pattern': "linear-gradient(to right, #ffffff05 1px, transparent 1px), linear-gradient(to bottom, #ffffff05 1px, transparent 1px)",

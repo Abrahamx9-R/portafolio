@@ -1,18 +1,29 @@
 @import "tailwindcss";
 
 @theme {
-    /* Colors */
-    --color-space-900: #050510;
-    --color-space-800: #0a0a1a;
+    /* Colors - Deep Space Base */
+    --color-space-900: #020810;
+    --color-space-800: #061020;
+    --color-space-700: #0c1a30;
 
-    --color-neon-cyan: #00f3ff;
-    --color-neon-blue: #0066ff;
-    --color-rectifier-orange: #ff9e00;
+    /* Tron Blue Spectrum */
+    --color-neon-cyan: #00e5ff;
+    --color-neon-blue: #00b8ff;
+    --color-neon-white: #e0f7ff;
+    --color-neon-sky: #4dc9ff;
 
-    --color-lcars-purple: #9944ff;
-    --color-lcars-tan: #ffcc99;
-    --color-lcars-red: #cc4444;
-    --color-lcars-blue: #4455bb;
+    /* Blue Accents */
+    --color-accent-deep: #0066cc;
+    --color-accent-navy: #003d7a;
+    --color-accent-ice: #b3e5fc;
+
+    /* LCARS Blue Theme */
+    --color-lcars-primary: #00aaff;
+    --color-lcars-secondary: #0088cc;
+    --color-lcars-tertiary: #66ccff;
+    --color-lcars-dark: #004488;
+    --color-lcars-light: #99ddff;
+    --color-lcars-glow: #00ffff;
 
     /* Fonts */
     --font-heading: 'Orbitron', sans-serif;
@@ -20,8 +31,9 @@
     --font-mono: 'Menlo', 'Monaco', 'Courier New', monospace;
 
     /* Shadows */
-    --shadow-neon-blue: 0 0 5px var(--color-neon-cyan), 0 0 20px var(--color-neon-cyan);
-    --shadow-neon-orange: 0 0 5px var(--color-rectifier-orange), 0 0 20px var(--color-rectifier-orange);
+    --shadow-neon-blue: 0 0 8px var(--color-neon-cyan), 0 0 25px var(--color-neon-cyan), 0 0 40px var(--color-neon-blue);
+    --shadow-neon-soft: 0 0 8px var(--color-neon-sky), 0 0 20px var(--color-lcars-primary);
+    --shadow-lcars-glow: 0 0 10px var(--color-lcars-glow), 0 0 30px var(--color-lcars-primary);
 
     /* Backgrounds */
     --image-grid-pattern: linear-gradient(to right, #ffffff05 1px, transparent 1px), linear-gradient(to bottom, #ffffff05 1px, transparent 1px);
@@ -34,14 +46,23 @@
     }
 
     .lcars-panel {
-        @apply rounded-tr-2xl rounded-bl-2xl border-l-4 border-t-2 border-lcars-purple bg-space-800/50 backdrop-blur-md;
+        @apply rounded-tr-2xl rounded-bl-2xl border-l-4 border-t-2 border-lcars-primary bg-space-800/50 backdrop-blur-md;
     }
 
     .tron-grid {
-        background-size: 40px 40px;
-        background-image: linear-gradient(to right, rgba(0, 243, 255, 0.05) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(0, 243, 255, 0.05) 1px, transparent 1px);
-        mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+        background-size: 50px 50px;
+        background-image: linear-gradient(to right, rgba(0, 212, 255, 0.08) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(0, 212, 255, 0.08) 1px, transparent 1px);
+        mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    }
+
+    .lcars-stripe {
+        background: linear-gradient(90deg, 
+            var(--color-lcars-primary) 0%, 
+            var(--color-lcars-tertiary) 25%, 
+            var(--color-neon-cyan) 50%,
+            var(--color-lcars-secondary) 75%,
+            var(--color-lcars-primary) 100%);
     }
 }
 
