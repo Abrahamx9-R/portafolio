@@ -10,7 +10,11 @@ tags: ['Python', 'TypeScript', 'NestJS', 'FastAPI', 'Backend', 'Frameworks']
 
 # FastAPI vs NestJS: ¿Cuál es mejor para tu proyecto? Mi experiencia personal.
 
+<div class="flex justify-center my-8">
+
 ![FastAPI vs NestJS](/fastapi-vs-nestjs-2.png)
+
+</div>
 
 A lo largo de los últimos años, trabajando como Project Manager y desarrollador Full Stack para diversas PyMEs, he tenido la necesidad de desarrollar múltiples APIs REST. En muchas ocasiones me he enfrentado a la decisión de elegir entre diferentes opciones tecnológicas, no solo lenguajes de programación, sino también frameworks específicos. En el país donde radico actualmente, encontrar desarrolladores con experiencia en una amplia variedad de tecnologías puede ser un reto, por lo que el mercado suele limitarse a opciones populares como PHP, Python o Java.
 
@@ -26,21 +30,137 @@ Hasta ahora, las opciones que más me han convencido son **FastAPI** y **NestJS*
 
 Inicialmente, me decanté por FastAPI. Python ha ganado una enorme popularidad en los últimos años por ser un lenguaje versátil, con una comunidad muy activa y una documentación excelente.
 
+<div class="flex justify-center my-8">
+
 ![FastAPI Concept](/fastapi-vs-nestjs-1.png)
 
-Esto me permitió generar APIs avanzadas con validaciones de datos, autenticación, autorización y documentación automática (gracias a Swagger UI) con un esfuerzo mínimo y en tiempos récord.
+</div>
 
-Sin embargo, con el tiempo noté que Python no siempre es la opción ideal para todos los escenarios, especialmente para ciertas PyMEs con presupuestos ajustados de infraestructura. Al no ser un lenguaje interpretado optimizado para el máximo rendimiento bruto (en comparación con otros compilados o JIT optimizados), en ocasiones las APIs requerían más recursos de hardware para mantener la velocidad deseada. El consumo de memoria y CPU podía elevarse, incrementando el costo mensual por usuario, lo cual a veces comprometía la viabilidad económica para proyectos pequeños.
+Esto me permitió generar APIs avanzadas con las siguientes características:
+
+<div class="bg-space-800/50 border border-neon-cyan/30 rounded-lg p-6 my-6">
+  <ul class="space-y-3">
+    <li class="flex items-start gap-3">
+      <span class="text-neon-cyan text-2xl flex-shrink-0">✅</span>
+      <div>
+        <strong class="text-neon-cyan">Validaciones automáticas:</strong>
+        <span class="text-gray-300"> Con <a href="https://docs.pydantic.dev/" target="_blank" rel="noopener noreferrer" class="text-neon-cyan hover:text-neon-purple transition-colors underline">Pydantic</a>, obtienes validación automática de peticiones y respuestas</span>
+      </div>
+    </li>
+    <li class="flex items-start gap-3">
+      <span class="text-neon-cyan text-2xl flex-shrink-0">🔐</span>
+      <div>
+        <strong class="text-neon-cyan">Autenticación y autorización:</strong>
+        <span class="text-gray-300"> Integración nativa con <a href="https://fastapi.tiangolo.com/tutorial/security/" target="_blank" rel="noopener noreferrer" class="text-neon-cyan hover:text-neon-purple transition-colors underline">OAuth2, JWT y otros estándares de seguridad</a></span>
+      </div>
+    </li>
+    <li class="flex items-start gap-3">
+      <span class="text-neon-cyan text-2xl flex-shrink-0">📚</span>
+      <div>
+        <strong class="text-neon-cyan">Documentación automática:</strong>
+        <span class="text-gray-300"> FastAPI genera <a href="https://swagger.io/tools/swagger-ui/" target="_blank" rel="noopener noreferrer" class="text-neon-cyan hover:text-neon-purple transition-colors underline">Swagger UI</a> y <a href="https://github.com/Redocly/redoc" target="_blank" rel="noopener noreferrer" class="text-neon-cyan hover:text-neon-purple transition-colors underline">ReDoc</a> automáticamente</span>
+      </div>
+    </li>
+    <li class="flex items-start gap-3">
+      <span class="text-neon-cyan text-2xl flex-shrink-0">⚡</span>
+      <div>
+        <strong class="text-neon-cyan">Alto rendimiento:</strong>
+        <span class="text-gray-300"> Basado en <a href="https://www.starlette.io/" target="_blank" rel="noopener noreferrer" class="text-neon-cyan hover:text-neon-purple transition-colors underline">Starlette</a> y <a href="https://pydantic-docs.helpmanual.io/" target="_blank" rel="noopener noreferrer" class="text-neon-cyan hover:text-neon-purple transition-colors underline">Pydantic</a>, uno de los frameworks Python más rápidos</span>
+      </div>
+    </li>
+    <li class="flex items-start gap-3">
+      <span class="text-neon-cyan text-2xl flex-shrink-0">⏱️</span>
+      <div>
+        <strong class="text-neon-cyan">Desarrollo rápido:</strong>
+        <span class="text-gray-300"> La sintaxis clara y simple de Python combinada con type hints automáticos lo hacen ideal para prototipos y MVPs</span>
+      </div>
+    </li>
+  </ul>
+</div>
+
+### Desafíos encontrados con FastAPI
+
+<div class="bg-space-800/50 border border-red-400/30 rounded-lg p-6 my-6">
+  <ul class="space-y-3">
+    <li class="flex items-start gap-3">
+      <span class="text-red-400 text-xl flex-shrink-0">⚠️</span>
+      <div>
+        <strong class="text-red-400">Consumo de recursos:</strong>
+        <span class="text-gray-300"> En ocasiones las APIs requerían más recursos de hardware para mantener la velocidad deseada</span>
+      </div>
+    </li>
+    <li class="flex items-start gap-3">
+      <span class="text-red-400 text-xl flex-shrink-0">⚠️</span>
+      <div>
+        <strong class="text-red-400">Costos de infraestructura:</strong>
+        <span class="text-gray-300"> El consumo de memoria y CPU podía elevarse, incrementando el costo mensual</span>
+      </div>
+    </li>
+    <li class="flex items-start gap-3">
+      <span class="text-red-400 text-xl flex-shrink-0">⚠️</span>
+      <div>
+        <strong class="text-red-400">Escalabilidad en PyMÉs:</strong>
+        <span class="text-gray-300"> Para proyectos pequeños con presupuestos ajustados, a veces comprometía la viabilidad económica</span>
+      </div>
+    </li>
+  </ul>
+</div>
 
 ## El cambio a NestJS
 
-Debido a lo anterior, decidí probar **NestJS**, un framework igualmente moderno, seguro y escalable.
+Debido a las limitaciones de costos de infraestructura, decidí probar **NestJS**, un framework igualmente moderno, seguro y escalable.
 
-NestJS, con su CLI (interfaz de línea de comandos) integrada, facilita enormemente mantener una arquitectura ordenada y modular desde el principio. Además, su integración con **Jest** hace que el proceso de pruebas unitarias y de integración sea mucho más cómodo y natural.
+<div class="flex justify-center my-8">
 
 ![NestJS Architecture Concept](/fastapi-vs-nestjs-3.png)
 
-La capacidad nativa de trabajar con microservicios, WebSockets y GraphQL lo convierte en una opción muy potente para proyectos grandes. Para una PyME podría parecer excesivo, pero una buena gestión de la documentación y la arquitectura permite optimizar el desarrollo sin sobredimensionar la solución.
+</div>
+
+NestJS, con su CLI (interfaz de línea de comandos) integrada, facilita enormemente mantener una arquitectura ordenada y modular desde el principio. Además, su integración con **Jest** hace que el proceso de pruebas unitarias y de integración sea mucho más cómodo y natural.
+
+### Ventajas clave de NestJS
+
+<div class="bg-space-800/50 border border-lcars-tertiary/30 rounded-lg p-6 my-6">
+  <ul class="space-y-3">
+    <li class="flex items-start gap-3">
+      <span class="text-lcars-tertiary text-2xl flex-shrink-0">🏛️</span>
+      <div>
+        <strong class="text-lcars-tertiary">Arquitectura modular:</strong>
+        <span class="text-gray-300"> El <a href="https://docs.nestjs.com/cli/overview" target="_blank" rel="noopener noreferrer" class="text-lcars-tertiary hover:text-neon-purple transition-colors underline">CLI integrado</a> facilita crear módulos, controladores y servicios siguiendo buenas prácticas desde el inicio</span>
+      </div>
+    </li>
+    <li class="flex items-start gap-3">
+      <span class="text-lcars-tertiary text-2xl flex-shrink-0">🛡️</span>
+      <div>
+        <strong class="text-lcars-tertiary">TypeScript first:</strong>
+        <span class="text-gray-300"> <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreferrer" class="text-lcars-tertiary hover:text-neon-purple transition-colors underline">TypeScript</a> proporciona seguridad de tipos, evitando errores en tiempo de ejecución y mejorando la calidad del código</span>
+      </div>
+    </li>
+    <li class="flex items-start gap-3">
+      <span class="text-lcars-tertiary text-2xl flex-shrink-0">🧪</span>
+      <div>
+        <strong class="text-lcars-tertiary">Testing integrado:</strong>
+        <span class="text-gray-300"> Integración nativa con <a href="https://jestjs.io/" target="_blank" rel="noopener noreferrer" class="text-lcars-tertiary hover:text-neon-purple transition-colors underline">Jest</a> hace las pruebas unitarias e integración mucho más naturales y productivas</span>
+      </div>
+    </li>
+    <li class="flex items-start gap-3">
+      <span class="text-lcars-tertiary text-2xl flex-shrink-0">🔌</span>
+      <div>
+        <strong class="text-lcars-tertiary">Soporte completo:</strong>
+        <span class="text-gray-300"> Soporte nativo para <a href="https://docs.nestjs.com/microservices/basics" target="_blank" rel="noopener noreferrer" class="text-lcars-tertiary hover:text-neon-purple transition-colors underline">microservicios</a>, <a href="https://docs.nestjs.com/websockets/gateways" target="_blank" rel="noopener noreferrer" class="text-lcars-tertiary hover:text-neon-purple transition-colors underline">WebSockets</a> y <a href="https://docs.nestjs.com/graphql/quick-start" target="_blank" rel="noopener noreferrer" class="text-lcars-tertiary hover:text-neon-purple transition-colors underline">GraphQL</a> desde el propio framework</span>
+      </div>
+    </li>
+    <li class="flex items-start gap-3">
+      <span class="text-lcars-tertiary text-2xl flex-shrink-0">💰</span>
+      <div>
+        <strong class="text-lcars-tertiary">Eficiencia de costos:</strong>
+        <span class="text-gray-300"> Gracias al motor V8 de Node.js, NestJS ofrece mejor eficiencia de recursos, lo que se traduce en menores costos de infraestructura en producción</span>
+      </div>
+    </li>
+  </ul>
+</div>
+
+La capacidad nativa de trabajar con microservicios, WebSockets y GraphQL lo convierte en una opción muy potente para proyectos grandes. Para una PyMÉ podría parecer excesivo, pero una buena gestión de la documentación y la arquitectura permite optimizar el desarrollo sin sobredimensionar la solución.
 
 Una de las principales ventajas de NestJS es que está basado en **TypeScript**. Esto permite un control estricto de los tipos de datos, resultando en un código más seguro, robusto y fácil de mantener a largo plazo. Además, en México (y en gran parte de Latinoamérica) es relativamente más sencillo encontrar desarrolladores con experiencia en JavaScript/TypeScript.
 
@@ -104,6 +224,76 @@ A continuación, presento un resumen de los puntos fuertes y débiles que he enc
        <li class="flex items-start gap-2">
         <span class="text-red-400 text-lg mt-[-2px]">✕</span>
         <span><strong>Verbosidad:</strong> Más código para tareas simples.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+## ¿Cuándo elegir cada uno?
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+  <div class="bg-gradient-to-br from-space-800 to-space-900 border border-neon-cyan/30 rounded-xl p-6 shadow-xl">
+    <h3 class="text-2xl font-heading text-neon-cyan mb-6 flex items-center gap-2">
+      <span class="text-3xl">🐍</span>
+      Elige FastAPI si:
+    </h3>
+    <ul class="space-y-3 text-gray-300">
+      <li class="flex items-start gap-2">
+        <span class="text-neon-cyan mt-1 flex-shrink-0">✦</span>
+        <span>Tu equipo domina Python y quieres mantener el stack unificado</span>
+      </li>
+      <li class="flex items-start gap-2">
+        <span class="text-neon-cyan mt-1 flex-shrink-0">✦</span>
+        <span>Necesitas desarrollo ultra rápido y prototipado ágil</span>
+      </li>
+      <li class="flex items-start gap-2">
+        <span class="text-neon-cyan mt-1 flex-shrink-0">✦</span>
+        <span>Tu proyecto integra Data Science, ML o IA</span>
+      </li>
+      <li class="flex items-start gap-2">
+        <span class="text-neon-cyan mt-1 flex-shrink-0">✦</span>
+        <span>El presupuesto de infraestructura no es una limitante crítica</span>
+      </li>
+      <li class="flex items-start gap-2">
+        <span class="text-neon-cyan mt-1 flex-shrink-0">✦</span>
+        <span>Valoras la documentación automática y validaciones con Pydantic</span>
+      </li>
+      <li class="flex items-start gap-2">
+        <span class="text-neon-cyan mt-1 flex-shrink-0">✦</span>
+        <span>Buscas una curva de aprendizaje suave y código intuitivo</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="bg-gradient-to-br from-space-800 to-space-900 border border-lcars-tertiary/30 rounded-xl p-6 shadow-xl">
+    <h3 class="text-2xl font-heading text-lcars-tertiary mb-6 flex items-center gap-2">
+      <span class="text-3xl">🐱</span>
+      Elige NestJS si:
+    </h3>
+    <ul class="space-y-3 text-gray-300">
+      <li class="flex items-start gap-2">
+        <span class="text-lcars-tertiary mt-1 flex-shrink-0">✦</span>
+        <span>Tu equipo ya trabaja con TypeScript/JavaScript</span>
+      </li>
+      <li class="flex items-start gap-2">
+        <span class="text-lcars-tertiary mt-1 flex-shrink-0">✦</span>
+        <span>Necesitas optimizar costos de infraestructura (50-70% menos)</span>
+      </li>
+      <li class="flex items-start gap-2">
+        <span class="text-lcars-tertiary mt-1 flex-shrink-0">✦</span>
+        <span>Buscas arquitectura empresarial y escalable desde el inicio</span>
+      </li>
+      <li class="flex items-start gap-2">
+        <span class="text-lcars-tertiary mt-1 flex-shrink-0">✦</span>
+        <span>Requieres microservicios, WebSockets o GraphQL</span>
+      </li>
+      <li class="flex items-start gap-2">
+        <span class="text-lcars-tertiary mt-1 flex-shrink-0">✦</span>
+        <span>Valoras el tipado fuerte y la seguridad del código</span>
+      </li>
+      <li class="flex items-start gap-2">
+        <span class="text-lcars-tertiary mt-1 flex-shrink-0">✦</span>
+        <span>El proyecto tendrá mantenimiento a largo plazo</span>
       </li>
     </ul>
   </div>
