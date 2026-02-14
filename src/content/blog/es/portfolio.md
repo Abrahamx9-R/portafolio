@@ -14,8 +14,6 @@ Este portafolio fue creado con Astro, Three.js y Tailwind.
 
 Está inspirado en las tonalidades de Star Trek y Tron, mis series y películas favoritas. Quise darle un toque futurista que reflejara lo que más me apasiona: la física aplicada, en este caso, aplicada a la tecnología.
 
-{{ ... }}
-
 ---
 
 ## Tecnologías
