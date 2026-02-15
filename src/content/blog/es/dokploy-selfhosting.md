@@ -1,6 +1,6 @@
 ---
 title: 'Mi servidor local en 2025: Dokploy, Cloudflare y redundancia total'
-description: 'Cómo monté mi propio servidor local en México para alojar proyectos personales con alta disponibilidad, usando Dokploy, Cloudflare Tunnel y redundancia en la red.'
+description: 'Cómo monté mi propio servidor local en México para alojar proyectos con alta disponibilidad, usando Dokploy, Cloudflare Tunnel y redundancia en la red.'
 pubDate: 'Febrero 15 2026'
 heroImage: '/dokploy-selfhosting.png'
 category: 'DevOps'
