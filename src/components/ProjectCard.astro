@@ -7,7 +7,7 @@ interface Props {
     link: string;
 }
 
-const { title, description, tags, link } = Astro.props;
+const { title, description, tags, image, link } = Astro.props;
 ---
 
 <a
@@ -15,17 +15,26 @@ const { title, description, tags, link } = Astro.props;
     class="group flex flex-col h-full relative bg-space-800 border border-white/10 overflow-hidden hover:border-neon-cyan transition-colors duration-300 rounded-xl"
 >
     <!-- Image Placeholder (if no image) -->
+    <!-- Image (if exists) -->
     <div
         class="h-48 bg-space-900 relative overflow-hidden group-hover:opacity-80 transition-opacity shrink-0"
     >
-        <div
-            class="absolute inset-0 flex items-center justify-center text-gray-500 font-mono text-sm"
-        >
-            [PROJECT_VISUALIZATION]
-        </div>
+        {
+            image ? (
+                <img
+                    src={image}
+                    alt={title}
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+            ) : (
+                <div class="absolute inset-0 flex items-center justify-center text-gray-500 font-mono text-sm">
+                    [PROJECT_VISUALIZATION]
+                </div>
+            )
+        }
         <!-- Grid overlay -->
         <div
-            class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"
+            class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none"
         >
         </div>
     </div>
